@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+   
+    <bean id="barometro" class="ar.com.eduit.beans.Barometro"/>
+    
+    <bean id="termometro" class="ar.com.eduit.beans.Termometro"/>
+    
+    <bean id="pluviometro" class="ar.com.eduit.beans.Pluviometro"/>
+
+    <bean id="persona" class="ar.com.eduit.beans.PersonaBean"/>
+     
+	<bean id="estacionMetereologicaSur" class="ar.com.eduit.beans.EstacionMetereologicaSur">
+		<property name="instrumento" ref="barometro" />
+	</bean>
+ 
+ 	<bean id="estacionMetereologicaNorte" class="ar.com.eduit.beans.EstacionMetereologicaNorte">
+		<constructor-arg ref="termometro"/>
+	</bean>
+	
+	 <bean id="estacionMetereologicaSur2" class="ar.com.eduit.beans.EstacionMetereologicaSur">
+		<property name="instrumento" ref="pluviometro" />
+	</bean>
+ 
+	 <bean id="agendaContacto" class="ar.com.eduit.beans.AgendaContacto">
+		<property name="persona" ref="persona" />
+	</bean>
+ 
+</beans>
